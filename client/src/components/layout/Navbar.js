@@ -10,6 +10,9 @@ export const Navbar = ({ title, icon }) => {
       </h1>
       <ul>
         <li>
+          <Link to="/about">About</Link>
+        </li>
+        <li>
           <Link to="/" >Home</Link>
         </li>
         <li>
@@ -20,9 +23,6 @@ export const Navbar = ({ title, icon }) => {
         </li>
         <li>
           <Link to="/blog">Blog</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
         </li>
         <li>
           <Link to="/login" >Login</Link>
