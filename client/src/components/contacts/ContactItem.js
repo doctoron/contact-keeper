@@ -1,9 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types'
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+import ContactContext from '../../context/contact/contactContext';
 
 const ContactItem = ({ contact }) => {
-  // eslint-disable-next-line
+  const contactContext = useContext(ContactContext);
+  const { deleteContact, setCurrent, clearCurrent } = contactContext;
+
   const { id, name, email, phone, type } = contact;
+
+  const onDelete = () => {
+    deleteContact(id);
+    clearCurrent();
+  }
+
   return (
     <div className='card bg-light'>
       <h3 className="text-primary text-left">
@@ -13,6 +22,7 @@ const ContactItem = ({ contact }) => {
             (type === 'member' ? 'badge-success' : 'badge-primary')
           }
         >
+          {/* Take first character to uppercase */}
           {type.charAt(0).toUpperCase() + type.slice(1)}
         </span>
       </h3>
@@ -24,16 +34,18 @@ const ContactItem = ({ contact }) => {
           <i className="fas fa-phone"></i> {phone}
         </li>)}
       </ul>
-      {(type === 'member' ? <button className="btn btn-success btn-sm">MyVacTrack</button> : "")}
-      <button className="btn btn-dark btn-sm">Edit</button>
-      <button className="btn btn-danger btn-sm">Delete</button>
+      <p>
+        {(type === 'member' ? <button className="btn btn-success btn-sm">MyVacTrack</button> : " ")}
+        <button className="btn btn-dark btn-sm" onClick={() => setCurrent(contact)}>Edit</button>
+        <button className="btn btn-danger btn-sm" onClick={onDelete}>Delete</button>
+      </p>
 
     </div>
   );
 };
 
 ContactItem.propTypes = {
-  constact: PropTypes.object.isRequired
+  contact: PropTypes.object.isRequired
 }
 
 export default ContactItem;

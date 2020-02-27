@@ -13,13 +13,22 @@ export const Navbar = ({ title, icon }) => {
           <Link to="/" >Home</Link>
         </li>
         <li>
-          <Link to="/oeas">Early Alert System</Link>
+          <Link to="/oeas">Resources</Link>
         </li>
         <li>
           <Link to="/vacrecs">Vaccinations</Link>
         </li>
         <li>
+          <Link to="/blog">Blog</Link>
+        </li>
+        <li>
           <Link to="/about">About</Link>
+        </li>
+        <li>
+          <Link to="/login" >Login</Link>
+        </li>
+        <li>
+          <Link to="/register" >Register</Link>
         </li>
       </ul>
     </div>
