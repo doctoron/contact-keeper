@@ -29,11 +29,13 @@ router.post(
     }
 
     const { name, email, password } = req.body;
+
     try {
       let user = await User.findOne({ email })
       if (user) {
         res.status(400).json({ msg: 'User already exists' });
       }
+
       user = new User({
         name,
         email,
@@ -50,9 +52,11 @@ router.post(
         user: {
           id: user.id
         }
-      }
+      };
 
-      jwt.sign(payload, config.get('jwtSecret'),
+      jwt.sign(
+        payload,
+        config.get('jwtSecret'),
         {
           // reset to 3600
           expiresIn: 360000
