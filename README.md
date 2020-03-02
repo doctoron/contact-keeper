@@ -1,4 +1,4 @@
-# Contact Keeper => VacTrack
+# VacTrack
 
 > This is a full stack MERN PVR (Personal Vaccination Record) manager with React hooks, context & JWT authentication. It was modeled from the Udemy React-Front-To-Back course to review my final project at the University of Central Florida's Full Stack Web Developer Program.
 
