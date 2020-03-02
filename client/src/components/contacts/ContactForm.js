@@ -38,17 +38,12 @@ const ContactForm = () => {
     } else {
       updateContact(contact);
     }
-    setContact({
-      name: '',
-      email: '',
-      phone: '',
-      type: 'guest'
-    });
-  }
-
+    clearAll();
+  };
   const clearAll = () => {
     clearCurrent();
-  };
+  }
+
 
 
   return (
